@@ -35,14 +35,24 @@ async def on_message(message):
     if message.content.startswith("아씨오"):
         await message.channel.send("뿌슝빠숑 휘유유우우웅(대충 뭔가 날아오는 소리)")
         
-    if message.content.startswith("!고소"):
-        attacker = message.content.split(" ")[1]
-        victim = message.content.split(" ")[2]
-
-        fa = open("C:\\Users\\User\\Desktop\\봇\\고소목록.txt", 'a')
-        fa.write(victim + "님이 " + attacker + "님을 고소하셨습니다.\n")
-
-        await message.channel.send("고소가 성공적으로 되었습니다.")
+    if command == "반배정":
+            if message.author.get_roles is None:
+                i = random.randrange(1,5)
+                if i == 1:
+                    role = discord.utils.get(msg.guild.roles, name="참새핀도르")
+                    await message.author.add_roles(role)
+                    await message.channel.send("흠...참새핀도르가 좋겠구나")
+                if i == 2:
+                    role = discord.utils.get(message.guild.roles, name = "마른데린")
+                    await message.channel.send("어디보자.. 마른데린~")
+                if i == 3:
+                    role = discord.utils.get(message.guild.roles, name = "코풀푸프")
+                    await message.channel.send("코풀푸프!")
+                if i == 4:
+                    role = discord.utils.get(message.guild.roles, name = "래번손톱")
+                    await message.channel.send("래번손톱으로 배정되었다.")
+            else:
+                await message.channel.send("이미 반배정이 완료되었다.")
 
     
 
